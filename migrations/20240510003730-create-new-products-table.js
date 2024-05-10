@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Products', {
@@ -8,17 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      productName: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      price: {
-        type: Sequelize.FLOAT,
+      prices: {
+        type: Sequelize.JSONB,
         allowNull: false
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: true
+      productVariations: {
+        type: Sequelize.JSONB,
+        allowNull: false
+      },
+      seller: {
+        type: Sequelize.JSONB,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +35,7 @@ module.exports = {
       }
     });
   },
+
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Products');
   }

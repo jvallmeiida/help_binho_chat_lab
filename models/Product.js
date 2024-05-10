@@ -2,18 +2,28 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelize');
 
 const Product = sequelize.define('Product', {
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false
+    productName: {
+    type: DataTypes.STRING,
+    allowNull: false
     },
-    price: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+    prices: {
+    type: DataTypes.JSONB,
+    allowNull: false
     },
-    description: {
-        type: DataTypes.TEXT,
-        allowNull: true
+    productVariations: {
+    type: DataTypes.JSONB,
+    allowNull: false
+    },
+    seller: {
+    type: DataTypes.JSONB,
+    allowNull: false
     }
 });
 
 module.exports = Product;
+
+
+// Nome do produto: string,
+// Prices: {min: integer, med: integer, max: integer}
+// product_variations: [{ image_url: string, price: integer, title: “string”}],
+// Seller: {name: “string”, seller_url: “string”, scraped_from_url: “string”}
