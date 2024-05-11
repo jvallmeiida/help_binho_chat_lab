@@ -1,8 +1,7 @@
 'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Products', {
+    await queryInterface.createTable('products', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,15 +13,7 @@ module.exports = {
         allowNull: false
       },
       prices: {
-        type: Sequelize.JSONB,
-        allowNull: false
-      },
-      productVariations: {
-        type: Sequelize.JSONB,
-        allowNull: false
-      },
-      seller: {
-        type: Sequelize.JSONB,
+        type: Sequelize.ARRAY(Sequelize.FLOAT),
         allowNull: false
       },
       createdAt: {
@@ -35,8 +26,7 @@ module.exports = {
       }
     });
   },
-
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Products');
+    await queryInterface.dropTable('products');
   }
 };
