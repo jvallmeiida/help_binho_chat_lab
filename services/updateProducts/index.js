@@ -2,7 +2,7 @@ const product = require('../../models/product');
 const productVariation = require('../../models/productVariation');
 const bcrypt = require('bcrypt');
 
-async function updateProductsPrices(productName) {
+async function updateProducts(productName) {
   try {
     const productsData = await fetchProducts(productName); 
     const productTitle = productsData.data.title;
@@ -39,6 +39,10 @@ async function updateProductsPrices(productName) {
             await existingVariation.update({ price: variationData.price });
           }
 
+          if (existingVariation.rating != variationData.rating) {
+            await existingVariation.update({ rating: variationData.rating });
+          }
+
           console.log('Variação atualizada:', existingVariation.toJSON());
         }
       }
@@ -51,4 +55,4 @@ async function updateProductsPrices(productName) {
   }
 }
 
-module.exports = { updateProductsPrices };
+module.exports = { updateProducts };

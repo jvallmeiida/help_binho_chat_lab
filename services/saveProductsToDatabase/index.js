@@ -28,6 +28,7 @@ async function saveProductsToDatabase(productName) {
                 title: variationData.title,
                 sellerName: variationData.seller,
                 sellerUrl: variationData.seller_url,
+                rating: variationData.rating,
                 scrapedFromUrl: variationData.scraped_from_url,
                 productId: productCreate.id
               });

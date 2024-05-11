@@ -1,5 +1,5 @@
 const cron = require('node-cron');
-const { updateProductsPrices } = require('../services/updateProductPrices');
+const { updateProducts } = require('../services/updateProducts');
 
 const intervalMinutes = process.env.INTERVAL_MINUTES || 60; 
 

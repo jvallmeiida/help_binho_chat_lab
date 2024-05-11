@@ -17,6 +17,10 @@ const productVariation = sequelize.define('productVariation', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  rating: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
   sellerName: {
     type: DataTypes.STRING,
     allowNull: false
