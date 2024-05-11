@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false
       },
       prices: {
-        type: Sequelize.ARRAY(Sequelize.FLOAT),
+        type: Sequelize.JSON,
         allowNull: false
       },
       createdAt: {

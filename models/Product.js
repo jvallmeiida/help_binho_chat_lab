@@ -5,6 +5,10 @@ const product = sequelize.define('product', {
     productName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    prices: {
+      type: DataTypes.JSON, 
+      allowNull: false
     }
   });
 
