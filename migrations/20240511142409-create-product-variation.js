@@ -20,6 +20,9 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
+      historicPrices: {
+        type: Sequelize.ARRAY(Sequelize.FLOAT)
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false

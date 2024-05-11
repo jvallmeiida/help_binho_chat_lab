@@ -17,14 +17,14 @@ async function saveProductsToDatabase(productName) {
       if (!existingProduct) {
         const productCreate = await product.create({
           name: productTitle,
-          prices: [productPrices]
+          prices: productPrices
         });
 
         for (const variationData of variationsData) {
           try {
               const newVariation = await productVariation.create({
                 imageUrl: variationData.image_url,
-                price: [variationData.price],
+                price: variationData.price,
                 title: variationData.title,
                 sellerName: variationData.seller,
                 sellerUrl: variationData.seller_url,

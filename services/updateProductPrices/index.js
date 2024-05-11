@@ -20,7 +20,7 @@ async function updateProductsPrices(productName) {
 
       bcrypt.compare(lastPrice, newProductPrice, function(err, equal) {
         if (!equal) {
-          existingProduct.prices.push(newProductPrice)
+          existingProduct.update({prices: newProductPrice})
         }
       });
 
@@ -34,7 +34,11 @@ async function updateProductsPrices(productName) {
         });
 
         if (existingVariation) {
-          await existingVariation.update({ price: variationData.price });
+          if (existingVariation.price != variationData.price) {
+            existingVariation.historicPrices.push(variationData.price)
+            await existingVariation.update({ price: variationData.price });
+          }
+
           console.log('Variação atualizada:', existingVariation.toJSON());
         }
       }

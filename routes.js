@@ -1,7 +1,17 @@
 const express = require('express');
-const router = express.Router();
-const productsController = require('./controllers/productsController');
+const cors = require('cors');
 
-router.get('/products', productsController.getAllProducts);
+const app = express();
 
-module.exports = router;
+app.use(cors());
+
+const productsController = require('./controllers/api/v1/productsController');
+const productVariationsController = require('./controllers/api/v1/productVariationsController');
+
+app.get('/api/v1/products', productsController.getAllProducts);
+app.get('/api/v1/products/:id', productsController.getProduct);
+
+app.get('/api/v1/product_variations', productVariationsController.getAllProductVariations);
+app.get('/api/v1/products/:productId/variations/:variationId', productVariationsController.getProductVariationById);
+
+module.exports = app;
