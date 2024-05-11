@@ -5,10 +5,6 @@ const { fetchProducts } = require('../getProducts');
 async function saveProductsToDatabase(productName) {
   try {
       const productsData = await fetchProducts(productName); 
-      if (!productsData || !productsData.data || !productsData.data.products) {
-          throw new Error('Dados inválidos retornados da API');
-      }
-
       const productTitle = productsData.data.title;
       const productPrices = productsData.data.prices;
       const variationsData = productsData.data.products      
@@ -49,3 +45,5 @@ async function saveProductsToDatabase(productName) {
       throw error;
   }
 }
+
+module.exports = { saveProductsToDatabase };

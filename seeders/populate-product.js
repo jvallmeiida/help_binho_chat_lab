@@ -5,8 +5,8 @@ const { saveProductsToDatabase } = require('../services/saveProductsToDatabase')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await saveProductsToDatabase('iPhone 14');
-    await saveProductsToDatabase('Notebook Samsung Galaxy Book2');
-    await saveProductsToDatabase('Smartwatch Amazfit Gts 4');
+    await saveProductsToDatabase('Notebook');
+    await saveProductsToDatabase('Amazfit');
   },
 
 };

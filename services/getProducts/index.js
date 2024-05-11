@@ -23,3 +23,5 @@ async function fetchProducts(productName) {
         throw error;
     }
 }
+
+module.exports = { fetchProducts };
