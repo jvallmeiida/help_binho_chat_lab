@@ -7,7 +7,7 @@ const product = sequelize.define('product', {
       allowNull: false
     },
     prices: {
-      type: DataTypes.JSON, 
+      type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: false
     }
   });
