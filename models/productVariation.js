@@ -7,7 +7,7 @@ const productVariation = sequelize.define('productVariation', {
     allowNull: false
   },
   price: {
-    type: DataTypes.ARRAY(DataTypes.FLOAT),
+    type: DataTypes.FLOAT,
     allowNull: false
   },
   title: {
